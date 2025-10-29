@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-export interface IDoctor extends Document {
+export interface IDoctor {
     name: string;
     designation: string;
     specialities: string[];
@@ -8,6 +8,9 @@ export interface IDoctor extends Document {
     photo?: string;
     about?: string;
     education?: string;
+    email: string;
+    password: string;
+    comparePassword(password: string): Promise<boolean>;
 }
 
 const doctorSchema = new Schema<IDoctor>(
@@ -19,6 +22,8 @@ const doctorSchema = new Schema<IDoctor>(
         photo: String,
         about: String,
         education: String,
+        email: { type: String, required: true, unique: true },
+        password: { type: String, required: true },
     },
     { timestamps: true }
 );
