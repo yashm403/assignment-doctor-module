@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-export interface IAppointment extends Document {
+export interface IAppointment{
     doctorId: mongoose.Types.ObjectId;
     patientName: string;
     date: string;
