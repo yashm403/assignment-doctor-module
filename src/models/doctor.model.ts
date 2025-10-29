@@ -8,9 +8,6 @@ export interface IDoctor {
     photo?: string;
     about?: string;
     education?: string;
-    email: string;
-    password: string;
-    comparePassword(password: string): Promise<boolean>;
 }
 
 const doctorSchema = new Schema<IDoctor>(
@@ -22,8 +19,6 @@ const doctorSchema = new Schema<IDoctor>(
         photo: String,
         about: String,
         education: String,
-        email: { type: String, required: true, unique: true },
-        password: { type: String, required: true },
     },
     { timestamps: true }
 );
